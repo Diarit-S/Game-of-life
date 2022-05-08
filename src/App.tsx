@@ -4,7 +4,7 @@ import "./App.css";
 import useInterval from "./useInterval";
 import { getNextGeneration, LivingCells, formatToStringPosition } from './GameEngine/index'
 import { UiCell } from "./components/Cell";
-import { lifePattern } from './GameEngine/baseListPattern'
+import { lifePattern } from './GameEngine/baseLifePattern'
 
 const numCols = 40;
 
