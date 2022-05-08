@@ -63,6 +63,7 @@ const App: FC = () => {
 
   return (
     <div className="container has-text-centered py-5">
+      <h1>Diarit Salihaj</h1>
       <div
         style={{
           display: "grid",
@@ -73,10 +74,7 @@ const App: FC = () => {
       >
         {grid.map((rows: Row, i: number) =>
           rows.map((col, k) => (
-            <div onClick={() => console.log(k, i)}>
-              <UiCell isAlive={Boolean(grid[i][k])} key={`${i}-${k}`}/>
-            </div>
-            
+            <UiCell isAlive={Boolean(grid[i][k])} key={`${i}-${k}`}/>
           ))
         )}
       </div>

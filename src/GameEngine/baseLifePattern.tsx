@@ -1,5 +1,5 @@
 // Change this array values to initiate the game with an other pattern
-// Her we have the "Gosper glider gun" pattern. 
+// Here we have the "Gosper glider gun" pattern. 
 // These values are the positions on living cells. Enjoy !
 export const lifePattern = [
   '2|15',
