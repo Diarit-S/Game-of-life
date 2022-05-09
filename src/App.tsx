@@ -64,6 +64,9 @@ const App: FC = () => {
   return (
     <div className="container has-text-centered py-5">
       <h1>Diarit Salihaj</h1>
+      <h1>Jessy Vautour</h1>
+      <h1>Hugues Romain</h1>
+      <h1>Maksym Yankivskyy</h1>
       <div
         style={{
           display: "grid",
