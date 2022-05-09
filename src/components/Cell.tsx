@@ -7,7 +7,7 @@ export const UiCell = ({isAlive}: {isAlive: boolean}) => {
       style={{
         width: 20,
         height: 20,
-        backgroundColor: isAlive ? "#2fffaf" : undefined,
+        backgroundColor: isAlive ? "#000000" : undefined,
         border: "1px solid #595959",
       }}
     ></div>

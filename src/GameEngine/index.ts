@@ -41,20 +41,26 @@ export const getNeighboursPositions = (cellPosition: Position): Position[] => {
   });
 };
 
-export const getNeighboursNumber =
-  (livingCells: LivingCells, candidateCoordinates: Position): number => {
-    return getNeighboursPositions(candidateCoordinates).map(formatToStringPosition).filter((neighbor: StringPosition) => livingCells.has(neighbor)).length;
-  };
+export const getLivingNeighboursNumber = (
+  livingCells: LivingCells, 
+  candidateCoordinates: Position
+): number => {
+  return getNeighboursPositions(candidateCoordinates)
+    .map(formatToStringPosition)
+    .filter((neighbor: StringPosition) => livingCells.has(neighbor))
+    .length;
+};
 
 export const getPotentiallyLivingCellsPositions = (actualLivingCells: LivingCells): Position[] => {
   return [...actualLivingCells].map(formatToPositions).map(getNeighboursPositions).flat();
 };
 
 export const getNextGeneration = (livingCells: LivingCells): LivingCells => {
-  const candidates = new Set([...livingCells, ...getPotentiallyLivingCellsPositions(livingCells).map(formatToStringPosition)]);
+  const candidates = new Set([...livingCells, ...getPotentiallyLivingCellsPositions(livingCells)
+    .map(formatToStringPosition)]);
   return new Set(
     [...candidates].filter((cell) => {
-      const neighboursNumber = getNeighboursNumber(livingCells, formatToPositions(cell));
+      const neighboursNumber = getLivingNeighboursNumber(livingCells, formatToPositions(cell));
       return checkIfCellShouldLive(neighboursNumber, livingCells.has(cell));
     })
   );

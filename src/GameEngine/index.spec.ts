@@ -4,7 +4,7 @@ import {
   getPotentiallyLivingCellsPositions,
   getNeighboursPositions,
   getNextGeneration,
-  getNeighboursNumber,
+  getLivingNeighboursNumber,
   checkIfCellShouldLive,
   Position,
   LivingCells,
@@ -61,14 +61,14 @@ describe("getNeighboursPositions()", function () {
   });
 });
 
-describe("getNeighboursNumber()", function () {
+describe("getLivingNeighboursNumber()", function () {
   test("Without living cells around, should return 0", function () {
     const livingCells: LivingCells = new Set([]);
     const coordinates: Position = {
       x: 0,
       y: 0,
     };
-    const result = getNeighboursNumber(livingCells, coordinates);
+    const result = getLivingNeighboursNumber(livingCells, coordinates);
     const expected: number = 0;
     expect(result).toEqual(expected);
   });
@@ -79,7 +79,7 @@ describe("getNeighboursNumber()", function () {
       x: 0,
       y: 0,
     };
-    const result = getNeighboursNumber(livingCells, coordinates);
+    const result = getLivingNeighboursNumber(livingCells, coordinates);
     const expected: number = 2;
     expect(result).toEqual(expected);
   });
